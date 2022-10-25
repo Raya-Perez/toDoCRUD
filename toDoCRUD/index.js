@@ -5,7 +5,7 @@ const input = document.querySelector('#input');
 const botonEnter = document.querySelector('#boton-enter');
 const check = 'fa-check-circle';
 const uncheck = 'fa-circle';
-const lineThrougt = 'line-Througt';
+const lineThrougt = 'line-Through';
 
 
 let id = 0;
@@ -14,7 +14,11 @@ let id = 0;
 
 //creacion de fecha actualizada
 const FECHA = new Date();
-fecha.innerHTML = FECHA.tolocaleDateString('es', {weekday: 'long', month: 'short', day: 'numeric'});
+fecha.innerHTML = FECHA.toLocaleDateString('es', {
+    weekday: 'long', 
+    month: 'short', 
+    day: 'numeric'
+});
 
 
 
@@ -30,10 +34,15 @@ function agregarTarea(tarea, id, realizado, eliminado) {
                     <li id="elemento">
                         <i class="far ${REALIZADO} co" 
                         data="realizado" 
-                        id="${id}"></i>
-                        <p class="text">${tarea}</p>
+                        id="${id}"
+                        >
+                        </i>
+                        <p class="text ${LINE}">${tarea}</p>
                         <i class="fas fa-trash de"
-                        data="eliminado" id="${id}"> </i>
+                            data="eliminado" 
+                            id="${id}"
+                            >
+                            </i>
 
                     </li>
                 `
