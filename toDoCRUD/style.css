@@ -80,12 +80,13 @@ body {
 
 }
 
-.seccion-tareas > ul li {
+.seccion-tareas li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to bottom,var(--blue.dark)var(--green));
+    background: linear-gradient(to bottom, var(--blue-dark), var(--green));
     border-radius: 15px;
+    padding: 10px;
     color: var(--white);
     margin:5px 0;
 
