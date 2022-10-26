@@ -6,9 +6,10 @@ const botonEnter = document.querySelector('#boton-enter');
 const check = 'fa-check-circle';
 const uncheck = 'fa-circle';
 const lineThrougt = 'line-Through';
+let LIST;
 
 
-let id = 0;
+let id;
 
 
 
@@ -54,7 +55,8 @@ function agregarTarea(tarea, id, realizado, eliminado) {
 function tareaRealizada(element){
     element.classList.toggle(check)
     element.classList.toggle(uncheck)
-    element.parentNode.querySelector('.text').classList.toggle(lineThrougt)
+    element.parentNode.querySelector('.text').classList.toggle(lineThrougt);
+    LIST[element.id].realizado =LIST[element.id].realizado ? false : true;
 
 }
 
@@ -62,6 +64,7 @@ function tareaRealizada(element){
 
 function tareaEliminada(element){
     element.parentNode.parentNode.removeChild(element.parentNode);
+    LIST[element.id].eliminado = true;
 }
 
 //Crear eventos para el clic y el enter 
@@ -71,6 +74,16 @@ botonEnter.addEventListener('click', ()=> {
 
     if (tarea){
         agregarTarea(tarea, id, false, false);
+        LIST.push({
+            nombre: tarea,
+            id: id,
+            realizado: false,
+            eliminado: false,
+        });
+        localStorage.setItem('TODO', JSON.Stringify(LIST));
+
+        input.value = '';
+        id++;
     }
     
 });
@@ -81,6 +94,12 @@ document.addEventListener('keyup', function(event) {
 
         if (tarea){
             agregarTarea(tarea, id, false, false);
+            LIST.push({
+                nombre: tarea,
+                id: id,
+                realizado: false,
+                eliminado: false,
+            });
 
             input.value = '';
             id++;
@@ -102,4 +121,25 @@ lista.addEventListener('click', function(event){
         tareaEliminada(element);
 
     }
+    localStorage.setItem('TODO', JSON.Stringify(LIST));
 });
+
+
+//Get local storege 
+let data = localStorage.getItem('TODO');
+
+if(data){
+    LIST = JSON.parse(data);
+    id = LIST.length;
+    cargarLista(LIST);
+
+} else{
+    LIST = [];
+    id = 0;
+}
+
+function cargarLista(array){
+    array.forEach(function(item){
+        agregarTarea(item.nombre, item.id, item.realizado, item.eliminado);
+    });
+}
