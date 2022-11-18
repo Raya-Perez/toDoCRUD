@@ -1,0 +1,41 @@
+Sitio de inventario de red (sistemas) 
+
+Primera paguina 
+-montar logo 
+-seccion de logueo con usuario y contraseña 
+-opcion de olvide contraseña (funcionalidad opcional)
+-opcion de crear usario (opcional validar si se puede terminar)
+-cada seleccion del menu borra y carga el formulario seleccionado 
+
+colores 
+botones en verde claro y letra blanca 
+texto de menus en gris claro 
+textos en negro 
+nombre de usuario a la derecha con menu de opciones (por el momento no funcional)
+botones con el efecto de cambiar color cuando el mouse pase sobre el
+buscar iconos para los menus y todo lo que se ocurra
+
+
+Segunda paguina 
+menu
+    agregar equipos
+        marca
+        serial 
+        usuario asignado 
+        cargar imagen (opcional)
+        ubicaion(departamento)
+        (boton guardar)
+    agregar monitores 
+        marca
+        serial 
+        usuario asignado 
+        cargar imagen (opcional)
+        buscar equipo para en lasar
+        (boton guardar)
+    agregar otros
+        mantenimiento
+        calendario 
+        buscar
+
+    salir
+
